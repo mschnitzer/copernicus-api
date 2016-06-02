@@ -27,6 +27,50 @@
          return $response;
      }
 
+     /**
+      * Stops the VPS server
+      */
+     public function stop()
+     {
+         $response = $this->deserialize($this->performRequest('/stop'));
+         $this->checkResult($response);
+
+         return $response;
+     }
+
+     /**
+      * Restarts the VPS server
+      */
+     public function restart()
+     {
+         $response = $this->deserialize($this->performRequest('/restart'));
+         $this->checkResult($response);
+
+         return $response;
+     }
+
+     /**
+      * Force-Off the VPS server
+      */
+     public function forceOff()
+     {
+         $response = $this->deserialize($this->performRequest('/force-off'));
+         $this->checkResult($response);
+
+         return $response;
+     }
+
+     /**
+      * Resets the VPS server
+      */
+     public function reset()
+     {
+         $response = $this->deserialize($this->performRequest('/reset'));
+         $this->checkResult($response);
+
+         return $response;
+     }
+
      private function performRequest($path)
      {
          $curl = curl_init();
